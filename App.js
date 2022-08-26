@@ -18,8 +18,12 @@ import {
   useDimensions,
   useDeviceOrientation,
 } from "@react-native-community/hooks";
-import WelcomeScreen from "./app/Screens/WelcomeScreen";
-import ViewImageScreen from "./app/Screens/ViewImageScreen";
+import { NavigationContainer } from "@react-navigation/native";
+
+import WelcomeScreen from "./src/Screens/WelcomeScreen";
+import ViewImageScreen from "./src/Screens/ViewImageScreen";
+import Navigator from "./src/routes/navigator";
+import First from "./src/Screens/First";
 
 export default function App() {
   //const handlePress = () => console.log("text pressed.");
@@ -29,8 +33,22 @@ export default function App() {
   const { landscape } = useDeviceOrientation();
 
   //return <WelcomeScreen />;
-  return <ViewImageScreen />;
+  //return <ViewImageScreen />;
+  //return <First />;
+  return (
+    <NavigationContainer>
+      <WelcomeScreen />
+    </NavigationContainer>
+  );
 }
+
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <WelcomeScreen />
+//     </NavigationContainer>
+//   );
+// };
 
 const containerStyles = { backgroundColor: "pink" };
 
